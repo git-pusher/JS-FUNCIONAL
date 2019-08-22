@@ -1,6 +1,23 @@
 const compose = (...functions) => data =>
   functions.reduceRight((value, func) => func(value), data)
 
+//pasar los atributos del argumento a String, recibe un objeto inicializado vacío
+  const attrsToString = (obj = {}) => {
+    const keys = Object.keys(obj)
+    //aquí se guardarán los atributos, inica vacía
+    const attrs = []  
+    //recorremos keys
+    for (let i = 0; i < keys.length; i++) {
+      let attr = keys[i]
+      //insertamos los atributos obtenidos
+      attrs.push(`${attr}=“${obj[attr]}"`)
+    }  
+    //generamos un string con todos los elementos de la lista
+    const string = attrs.join(' ')
+      return string
+  }
+  
+
 
   //guardo el Jquery en una variable para facilitar su uso
   let description = $('#description')
