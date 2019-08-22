@@ -57,5 +57,14 @@ protein.keypress(() => {
     }
     //agrego el objeto mediante push
     list.push(newItem)
+    cleanInputs()
+    console.log(list)
   }
 
+//limpiar los inputs luego de agregar un elemento
+const cleanInputs = () => {
+  description.val('')
+  calories.val('')
+  carbs.val('')
+  protein.val('')
+}
