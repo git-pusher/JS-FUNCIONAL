@@ -8,8 +8,8 @@ const compose = (...functions) => data =>
   let calories = $('#calories')
   let protein = $('#protein')
 
-
-
+  //inicializamos un arreglo
+  let list =[]
 
 //removemos la clase 'is-invalid' al empezar a escribir
 description.keypress(() => {
@@ -44,5 +44,18 @@ protein.keypress(() => {
       carbs.val() && 
       protein.val()
     ) add()
+  }
+
+  const add = () => {
+    //generamos un nuevo objeto para agregar a la lista
+    const newItem = {
+      description: description.val(),
+      //en estois casos necesitamos enteros
+      calories: parseInt(calories.val()),
+      carbs: parseInt(carbs.val()),
+      protein: parseInt(protein.val()),
+    }
+    //agrego el objeto mediante push
+    list.push(newItem)
   }
 
