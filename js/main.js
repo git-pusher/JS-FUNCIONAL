@@ -17,7 +17,19 @@ const compose = (...functions) => data =>
       return string
   }
   
-
+//atributos
+  const tagAttrs = obj => (content = '') =>
+    `<${obj.tag}${obj.attrs ? ' ' :	 ''}${attrsToString(obj.attrs)}>${content}</${obj.tag}>`
+  
+  //función compuesta
+  const tag = t => {
+    //verificamos el tipo de dato, si es un string
+    if(typeof t === 'string') {
+      //si lo es, llamamos la función adAttrs y le pasamos directamente la propiedad 'tag'
+      return tagAttrs({ tag: t })
+    }
+    return tagAttrs(t)
+  }
 
   //guardo el Jquery en una variable para facilitar su uso
   let description = $('#description')
