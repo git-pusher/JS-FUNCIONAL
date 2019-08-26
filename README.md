@@ -7,10 +7,10 @@
     - Object.assign
     - JSON.parse
     - JSON.stringify
-    * Inmutabilidad
+* Inmutabilidad
 ## Estado compartido en funciones
 * Shared state
 ## Composición de funciones
 * Funciones compuestas
-- Closures
-- Currying
+    - Closures
+    - Currying
