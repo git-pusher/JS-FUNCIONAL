@@ -31,6 +31,14 @@ const compose = (...functions) => data =>
     return tagAttrs(t)
   }
 
+  //filas
+  const tableRowTag = tag('tr')
+  //const tableRow = items => tableRowTag(tableCells(items))
+  const tableRow = items => compose(tableRowTag, tableCells)(items)
+  //celdas
+const tableCell = tag('td')
+const tableCells = items => items.map(tableCell).join('')
+
   //guardo el Jquery en una variable para facilitar su uso
   let description = $('#description')
   let carbs = $('#carbs')
