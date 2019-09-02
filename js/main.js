@@ -95,11 +95,11 @@ protein.keypress(() => {
     //agrego el objeto mediante push
     list.push(newItem)
     cleanInputs()
-    updateTotal()
-    console.log(list)
+    updateTotals()
+    renderItems()
   }
 
-const updateTotal = () => {
+const updateTotals = () => {
   let calories = 0, carbs = 0, protein =0
   list.map(item => {
     calories += item.calories,
@@ -118,4 +118,16 @@ const cleanInputs = () => {
   calories.val('')
   carbs.val('')
   protein.val('')
+}
+
+//mostrar elementos
+const renderItems = () => { 
+  //apuntamos al selector tbody y con empty se limpia lo que contenga tbody
+  $('tbody').empty()
+
+  list.map(item => { 
+    //append inserta al final de la lista un nuevo elemento, necesitamos insertar una fila y sus celdas
+   //tableRow recibe un arreglo items con cada una de loas celdas que vamos a insertar para generar una fila
+    $('tbody').append(tableRow([item.description, item.calories, item.carbs, item.protein]))
+  })
 }
