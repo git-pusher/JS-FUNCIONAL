@@ -95,8 +95,22 @@ protein.keypress(() => {
     //agrego el objeto mediante push
     list.push(newItem)
     cleanInputs()
+    updateTotal()
     console.log(list)
   }
+
+const updateTotal = () => {
+  let calories = 0, carbs = 0, protein =0
+  list.map(item => {
+    calories += item.calories,
+    carbs += item.carbs,
+    protein += item.protein
+  })
+  //text reemplaza lo que contienen las variables
+  $('#totalCalories').text(calories)
+  $('#totalCarbs').text(carbs)
+  $('#totalProtein').text(protein)
+}
 
 //limpiar los inputs luego de agregar un elemento
 const cleanInputs = () => {
