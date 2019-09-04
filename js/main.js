@@ -1,6 +1,7 @@
 const compose = (...functions) => data =>
   functions.reduceRight((value, func) => func(value), data)
 
+//forma IMPERATIVA
 //pasar los atributos del argumento a String, recibe un objeto inicializado vacío
   const attrsToString = (obj = {}) => {
     const keys = Object.keys(obj)
@@ -16,6 +17,13 @@ const compose = (...functions) => data =>
     const string = attrs.join(' ')
       return string
   }
+
+  //forma DECLARATIVA de la función attrsToString
+      // const attrsToString = (obj = {}) =>
+      //   Object.keys(obj)
+      //   .map(item => `${attr}="${obj[attr]}"`)
+      //   .join('')
+
   
 //atributos
   const tagAttrs = obj => (content = '') =>
