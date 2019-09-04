@@ -1,0 +1,27 @@
+{
+  "name": "programaciona-funcional",
+  "version": "1.0.0",
+  "description": "* Funciones puras\r * Obtener valor de los inputs\r * Validación de inputs\r * Copiar y modificar objetos\r     - Object.assign\r     - JSON.parse\r     - JSON.stringify\r * Inmutabilidad\r ## Estado compartido en funciones\r * Shared state\r ## Composición de funciones\r * Funciones compuestas\r     - Closures\r     - Currying",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/git-pusher/JS-FUNCIONAL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/git-pusher/JS-FUNCIONAL/issues"
+  },
+  "homepage": "https://github.com/git-pusher/JS-FUNCIONAL#readme",
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0"
+  }
+}

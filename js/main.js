@@ -10,7 +10,7 @@ const compose = (...functions) => data =>
     for (let i = 0; i < keys.length; i++) {
       let attr = keys[i]
       //insertamos los atributos obtenidos
-      attrs.push(`${attr}=“${obj[attr]}"`)
+      attrs.push(`${attr}="${obj[attr]}"`)
     }  
     //generamos un string con todos los elementos de la lista
     const string = attrs.join(' ')
@@ -19,7 +19,7 @@ const compose = (...functions) => data =>
   
 //atributos
   const tagAttrs = obj => (content = '') =>
-    `<${obj.tag}${obj.attrs ? ' ' :	 ''}${attrsToString(obj.attrs)}>${content}</${obj.tag}>`
+    `<${obj.tag}${obj.attrs ? ' ' :	''}${attrsToString(obj.attrs)}>${content}</${obj.tag}>`
   
   //función compuesta
   const tag = t => {
@@ -38,6 +38,8 @@ const compose = (...functions) => data =>
   //celdas
 const tableCell = tag('td')
 const tableCells = items => items.map(tableCell).join('')
+
+const trashIcon = tag({tag: 'i', attrs: {class: 'fas fa-trash-alt'}})('')
 
   //guardo el Jquery en una variable para facilitar su uso
   let description = $('#description')
@@ -125,9 +127,22 @@ const renderItems = () => {
   //apuntamos al selector tbody y con empty se limpia lo que contenga tbody
   $('tbody').empty()
 
-  list.map(item => { 
+  list.map((item, index )=> { 
+    const removeButton = tag({
+      tag: 'button',
+      attrs: {
+        class: 'btn btn-outline-danger',
+        onclick: `removeItem(${index})`
+      }
+    })(trashIcon)
     //append inserta al final de la lista un nuevo elemento, necesitamos insertar una fila y sus celdas
    //tableRow recibe un arreglo items con cada una de loas celdas que vamos a insertar para generar una fila
-    $('tbody').append(tableRow([item.description, item.calories, item.carbs, item.protein]))
+    $('tbody').append(tableRow([item.description, item.calories, item.carbs, item.protein, removeButton]))
   })
+}
+
+const removeItem = (index) => {
+  list.splice(index, 1)
+  updateTotals()
+  renderItems()
 }
