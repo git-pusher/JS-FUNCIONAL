@@ -21,7 +21,7 @@ const compose = (...functions) => data =>
   //forma DECLARATIVA de la función attrsToString
       // const attrsToString = (obj = {}) =>
       //   Object.keys(obj)
-      //   .map(item => `${attr}="${obj[attr]}"`)
+      //   .map(attr => `${attr}="${obj[attr]}"`)
       //   .join('')
 
   
